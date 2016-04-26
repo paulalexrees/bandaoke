@@ -2,8 +2,12 @@ class Bandaoke < Sinatra::Base
 
   get '/songs' do
     @songs = Song.all
-
     erb :'songs/all'
+  end
+
+  get '/songs/:song_id' do
+    @song = Song.get(params[:song_id])
+    erb :'songs/full'
   end
 
   # get '/songs/new' do
