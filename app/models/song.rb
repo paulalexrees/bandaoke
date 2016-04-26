@@ -3,5 +3,6 @@ class Song
 
   property :id, Serial
   property :title, String
+  property :artist, String
 
 end
