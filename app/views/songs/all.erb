@@ -1,3 +1,5 @@
-<% @songs.each do |song| %>
-  <%= partial :'partials/song', layout: false, locals: { song: song } %>
+<% if @songs.any? %>
+  <% @songs.each do |song| %>
+    <%= partial :'partials/song', locals: { song: song } %>
+  <% end %>
 <% end %>

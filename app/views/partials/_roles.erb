@@ -1,0 +1,7 @@
+<label for="<%= role.instrument %>"><%= role.instrument %> </label>
+<% if role.player %>
+  <span><%= role.player %></span>
+<% end %>
+<% unless role.player %>
+  <input type="text" name="<%= role.instrument %>">
+<% end %>
