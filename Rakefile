@@ -19,5 +19,5 @@ namespace :db do
     DataMapper.auto_migrate!
     p 'Complete'
   end
-
+  
 end

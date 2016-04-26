@@ -1,12 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
 * {
-  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: Raleway, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 .tile {
     box-shadow: rgb(212, 212, 213) 0px 1px 3px 0px, rgb(212, 212, 213) 0px 0px 0px 1px;
     box-sizing: border-box;
     color: rgba(0, 0, 0, 0.870588);
     display: flex;
-    max-width: 100%;
     position: relative;
     column-rule-color: rgba(0, 0, 0, 0.870588);
     perspective-origin: 145px 212.078px;
@@ -15,15 +16,21 @@
     border: 0px none rgba(0, 0, 0, 0.870588);
     border-radius: 4px 4px 4px 4px;
     flex-flow: column nowrap;
-    font: normal normal normal normal 14px / 19.999px Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font: normal normal normal normal 14px / 19.999px Raleway, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     outline: rgba(0, 0, 0, 0.870588) none 0px;
     transition: box-shadow 0.1s ease 0s, transform 0.1s ease 0s;
-    margin: 0 auto;
+    margin: 4.5%;
+    width: 40%;
+    display: inline-block;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+.tile a:hover .title{
+  color: blue;
 }
 .tile .container {
     background-position: 0px 0px;
@@ -40,7 +47,7 @@ a {
     border-bottom: 0px none rgba(0, 0, 0, 0.870588);
     border-left: 0px none rgba(0, 0, 0, 0.870588);
     flex: 1 1 auto;
-    font: normal normal normal normal 14px / 19.999px Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font: normal normal normal normal 14px / 19.999px Raleway, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     outline: rgba(0, 0, 0, 0.870588) none 0px;
     padding: 14px;
 }
@@ -93,7 +100,7 @@ a {
     border-bottom: 0px none rgba(0, 0, 0, 0.4);
     border-left: 0px none rgba(0, 0, 0, 0.4);
     border-radius: 0 0 4px 4px;
-    font: normal normal normal normal 14px / 19.999px Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font: normal normal normal normal 14px / 19.999px Raleway, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     outline: rgba(0, 0, 0, 0.4) none 0px;
     padding: 10.5px 0px;
     transition: color 0.1s ease 0s;
@@ -105,4 +112,23 @@ a {
 
 i.found{
   color: blue;
+}
+
+.tile i {
+  /*display: block;*/
+}
+
+
+.album-art {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+}
+.page-title {
+  text-align: center;
+}
+
+#main {
+  margin: 0 auto;
+  max-width: 600px;
 }
