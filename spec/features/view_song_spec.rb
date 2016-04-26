@@ -5,4 +5,5 @@ feature 'viewing songs' do
     expect(page).to have_content "Enter Sandman"
     expect(page).to have_content "Metallica"
   end
+
 end

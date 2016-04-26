@@ -17,7 +17,7 @@ class Bandaoke < Sinatra::Base
 
   post '/song' do
     song = Song.get(session[:song_id])
-    role = song.roles.get(params[:instrument])
+    role = song.roles.first.get(params[:instrument])
     role.fill(params[:player])
   end
 
