@@ -5,6 +5,7 @@ require 'sinatra/partial'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'tilt/erb'
+require 'pry'
 
 require_relative 'server'
 require_relative './models/song'
