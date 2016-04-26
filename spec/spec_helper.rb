@@ -7,8 +7,9 @@ require File.join(File.dirname(__FILE__), '..', 'app/app.rb')
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'database_cleaner'
 
-Capybara.app = bandaoke
+Capybara.app = Bandaoke
 
 RSpec.configure do |config|
   config.include Capybara::DSL
