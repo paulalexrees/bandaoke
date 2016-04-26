@@ -15,4 +15,10 @@ class Bandaoke < Sinatra::Base
   #   redirect to '/songs'
   # end
 
+  post '/song' do
+    song = Song.get(session[:song_id])
+    role = song.roles.get(params[:instrument])
+    role.fill(params[:player])
+  end
+
 end
