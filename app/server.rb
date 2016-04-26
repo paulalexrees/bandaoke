@@ -5,8 +5,8 @@ class Bandaoke < Sinatra::Base
   set :public_folder, proc { File.join(root, '../public') }
   set :partial_template_engine, :erb
   enable :partial_underscores
-  
+
   get '/' do
-    'Hello bandaoke!'
+    redirect 'songs/'
   end
 end

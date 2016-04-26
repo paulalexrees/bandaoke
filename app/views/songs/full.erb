@@ -1,9 +1,12 @@
-<!-- <section class="song">
-	<div class="song-container">
-		 <a class="song-title"><%=@song.title%></a>
-	      <span class="artist"><%=@song.artist%></span>
-	</div>
-	<div class="roles">
-		 <a href="#" class='instrument-icon'>👱</a>
-	</div>
-</section> -->
+<section id="main">
+	<h2 class="sub-title"><%=@song.artist%></h2>
+	<img src="https://i.scdn.co/image/c6963993e632c62ba1cdcb84deedccb33d73df99" alt="album-art" class="album-art">
+	<form class="role-form" action="/roles" method="post">
+		<% if @song.roles.any? %>
+			<% @song.roles.each do |role| %>
+				<%= partial :'partials/roles', locals: { role: role } %>
+			<% end %>
+		<% end %>
+		<input type="submit" value="Submit">
+	</form>
+</section>
