@@ -1,0 +1,17 @@
+<form action='/songs/new' method='get'>
+  <input type='text' name='Song' placeholder='Search for a song'>
+  <input type='submit' value='Search'>
+</form>
+
+<article id='searchresults'>
+  <% if @songs %>
+    <% @songs.each do |song| %>
+      <form action='/songs/new' method='post'>
+        <%= song.title %> - <%= song.primary_artist.name %>
+        <input type="hidden" name="title" value="<%= song.title %>">
+        <input type="hidden" name="artist" value="<%= song.primary_artist.name %>">
+        <input type='submit' value='Submit'>
+      </form>
+    <% end %>
+  <% end %>
+</article>

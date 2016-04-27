@@ -72,7 +72,12 @@ GEM
     docile (1.1.5)
     extlib (0.9.16)
     fastercsv (1.5.5)
+    genius (0.1.1)
+      httparty (~> 0.11.0)
     highline (1.7.8)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     json (1.8.3)
     json_pure (1.8.3)
     method_source (0.8.2)
@@ -81,6 +86,7 @@ GEM
     mime-types-data (3.2016.0221)
     mini_portile2 (2.0.0)
     multi_json (1.11.3)
+    multi_xml (0.5.5)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     pry (0.10.3)
@@ -146,6 +152,7 @@ DEPENDENCIES
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  genius
   pry
   rake
   rspec

@@ -5,19 +5,21 @@ class Bandaoke < Sinatra::Base
     erb :'songs/all'
   end
 
+  get '/songs/new' do
+    @songs = Genius::Song.search(params[:Song]) if params[:Song]
+    erb :'songs/new'
+  end
+
   get '/songs/:song_id' do
     @song = Song.get(params[:song_id])
     erb :'songs/full'
   end
 
-  # get '/songs/new' do
-  #   erb :'songs/new'
-  # end
-
-  # post '/songs' do
-  #   song = Song.create(title: params[:title], artist: params[:artist])
-  #   song.attach_default_roles
-  #   redirect to '/songs'
-  # end
+  post '/songs/new' do
+    title = params[:title]
+    artist = params[:artist]
+    Song.add_with_roles(title: title, artist: artist)
+    redirect '/songs'
+  end
 
 end

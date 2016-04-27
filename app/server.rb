@@ -6,6 +6,12 @@ class Bandaoke < Sinatra::Base
   set :partial_template_engine, :erb
   enable :partial_underscores
 
+  configure do
+    enable :sessions
+  end
+
+  Genius.access_token = ENV['GENIUS_TOKEN']
+
   get '/' do
     redirect '/songs'
   end

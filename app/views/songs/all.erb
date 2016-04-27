@@ -1,3 +1,6 @@
+<form action='/songs/new'>
+  <button id='addsongbutton' type='submit'>Add Song</button>
+</form>
 <% if @songs.any? %>
   <% @songs.each do |song| %>
     <%= partial :'partials/song', locals: { song: song } %>
