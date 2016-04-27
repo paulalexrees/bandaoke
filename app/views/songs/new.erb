@@ -4,22 +4,14 @@
 </form>
 
 <article id='searchresults'>
-  <!-- <ul>
-    <% if @songs %>
-      <p>Results for: <%= @songs.first.title %></p>
-      <% @songs.each do |song| %>
-        <li>
-          <%= song.primary_artist.name %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul> -->
   <% if @songs %>
-    <select>
-      <p>Results for: <%= @songs.first.title %></p>
-      <% @songs.each do |song| %>
-        <option value='artist'><%= song.title %> - <%= song.primary_artist.name %></option>
-      <% end %>
-    </select>
+    <% @songs.each do |song| %>
+      <form action='/songs/new' method='post'>
+        <%= song.title %> - <%= song.primary_artist.name %>
+        <input type="hidden" name="title" value="<%= song.title %>">
+        <input type="hidden" name="artist" value="<%= song.primary_artist.name %>">
+        <input type='submit' value='Submit'>
+      </form>
+    <% end %>
   <% end %>
 </article>

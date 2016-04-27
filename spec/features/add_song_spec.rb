@@ -13,6 +13,11 @@ feature 'adding songs' do
   scenario 'shows a list of searched-for songs' do
     visit '/songs/new'
     fill_in :Song, with: "White Room"
-    expect(page).to have_content "Cream"    
+    click_button "Search"
+    select "White Room - Cream", from: "list_of_artists"
+    click_button "Submit"
+    expect(page).to have_content "White Room"
+    expect(page).to have_content "Cream"
   end
+
 end
