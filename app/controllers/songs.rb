@@ -7,7 +7,6 @@ class Bandaoke < Sinatra::Base
 
   get '/songs/new' do
     @songs = Genius::Song.search(params[:Song]) if params[:Song]
-    p @songs.first.title if @songs
     erb :'songs/new'
   end
 
