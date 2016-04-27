@@ -4,7 +4,10 @@
 			<span class="title"><%=song.title%></span>
 			<span class="sub-title"><%=song.artist%></span>
 		</div>
-	  <div class="bottom">
-	  </div>
+		<div class="bottom">
+			<% song.roles.each do |role| %>
+				<i class="flaticon-<%= role.instrument%> <%= role.found %>"></i>
+			<% end %>
+		</div>
 	</a>
 </article>

@@ -16,6 +16,7 @@ class Bandaoke < Sinatra::Base
 
   # post '/songs' do
   #   song = Song.create(title: params[:title], artist: params[:artist])
+  #   song.attach_default_roles
   #   redirect to '/songs'
   # end
 
