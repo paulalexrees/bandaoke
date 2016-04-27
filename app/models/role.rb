@@ -10,4 +10,8 @@ class Role
     self.save unless person == ""
   end
 
+  def found
+    'found' if self.player
+  end
+
 end
