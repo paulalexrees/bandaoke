@@ -6,8 +6,9 @@ class Role
   property :player, String
 
   def fill(person)
+    return if person.empty?
     self.player = person
-    self.save unless person == ""
+    self.save 
   end
 
   def found
