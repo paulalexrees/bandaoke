@@ -7,6 +7,6 @@ class Bandaoke < Sinatra::Base
   enable :partial_underscores
 
   get '/' do
-    redirect 'songs/'
+    redirect '/songs'
   end
 end
