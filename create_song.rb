@@ -1,3 +1,6 @@
 require './app/app.rb'
 
-Song.create(title: "Buttons",artist: "Pussy Cat Dolls")
+song = Song.create(title: "Buttons", artist: "Pussy Cat Dolls")
+song.roles << Role.create(instrument: "Guitar")
+song.roles << Role.create(instrument: "Drums")
+song.save
