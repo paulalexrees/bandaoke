@@ -11,7 +11,7 @@ describe Song do
     end
 
     it 'can be marked complete' do
-      role = song.roles.new(instrument: "Guitar")
+      role = song.roles.new(instrument: "guitar")
       role.fill("James Hetfield")
       expect(song).to be_complete
     end

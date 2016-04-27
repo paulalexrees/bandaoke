@@ -1,4 +1,2 @@
 require './app/app.rb'
-song = Song.create(title: "Don't Cha", artist: "Pussy Cat Dolls")
-
-song.save
+song = Song.add_with_roles(title: "Don't Cha", artist: "Pussy Cat Dolls")

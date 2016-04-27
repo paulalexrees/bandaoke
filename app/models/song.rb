@@ -1,6 +1,6 @@
 class Song
   include DataMapper::Resource
-  DEFAULT_ROLES  = [:Vocals, :Guitar, :Bass, :Drums, :Keyboard, :Tambourine]
+  DEFAULT_ROLES  = [:vocals, :guitar, :bass, :drums, :keyboard, :tambourine]
   property :id, Serial
   property :title, String
   property :artist, String
