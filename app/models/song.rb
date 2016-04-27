@@ -9,6 +9,7 @@ class Song
 
   def self.add_with_roles(title:, artist:)
     song = self.create(title: title, artist: artist)
+    song.attach_default_roles
   end
 
   def complete?
