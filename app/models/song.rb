@@ -23,10 +23,26 @@ class Song
     self
   end
 
+  def fill_roles(roles)
+    roles.each do |instrument, player|
+      fill_role(instrument, player)
+    end
+  end
+
   private
+
 
   def create_song_role(instrument)
     self.roles.create(instrument: instrument)
+  end
+
+  def find_role(instrument, player)
+    self.roles.first(instrument: instrument)
+  end
+
+  def fill_role(instrument, player)
+    role = find_role(instrument, player)
+    role.fill(player) if role
   end
 
 end
