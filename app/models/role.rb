@@ -7,7 +7,7 @@ class Role
 
   def fill(person)
     self.player = person
-    self.save
+    self.save unless person == ""
   end
 
 end
