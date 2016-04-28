@@ -10,8 +10,6 @@ class Bandaoke < Sinatra::Base
     enable :sessions
   end
 
-  Genius.access_token = ENV['GENIUS_TOKEN']
-
   get '/' do
     File.read("public/app/index.html")
   end

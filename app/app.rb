@@ -6,7 +6,11 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'tilt/erb'
 require 'pry'
-require 'genius'
+require 'json'
+require 'active_support'
+require 'active_support/core_ext'
+require 'net/http'
+
 
 require_relative 'server'
 require_relative './models/song'
