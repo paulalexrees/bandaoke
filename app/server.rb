@@ -13,4 +13,9 @@ class Bandaoke < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  get '/bind' do
+    binding.pry
+    "HELLO"
+  end
 end

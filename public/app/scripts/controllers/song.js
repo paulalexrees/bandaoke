@@ -19,8 +19,8 @@ bandaokeApp.controller('SongCtrl',['SongSearchService','AddSongService',
       });
     };
 
-      self.addSong = function (title, artist) {
-        AddSongService.saveSong(title, artist).then(function () {
+      self.addSong = function (title, artist, link) {
+        AddSongService.saveSong(title, artist,link).then(function () {
 
         });
       };

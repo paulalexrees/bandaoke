@@ -12,7 +12,8 @@ class Bandaoke < Sinatra::Base
   post '/songs' do
     title = params[:title]
     artist = params[:artist]
-    song = Song.add_with_roles(title: title, artist: artist)
+    link = params[:link]
+    song = Song.add_with_roles(title: title, artist: artist, link: link)
     { 'status': 'complete' }.to_json if song.errors.empty?
   end
 

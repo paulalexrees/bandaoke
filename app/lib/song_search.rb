@@ -23,7 +23,9 @@ class SongSearch
   def self.extract_songs(hits)
     songs = hits.map{ |hit| hit['result']}
     songs.map do |song|
-      { title: song['title'], artist: song['primary_artist']['name'] }
+      { title: song['title'],
+        artist: song['primary_artist']['name'],
+        link: song['url']}
     end
   end
 end
