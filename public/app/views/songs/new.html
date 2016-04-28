@@ -1,2 +1,5 @@
-<input type="text" id="song-search" placeholder="Search by name">
-<button type="button" id="search-submit">Search</button>
+<form>
+  <input type="text" id="song-search" ng-model="song" placeholder="Song">
+  <input type="text" id="artist-search" ng-model="artist" placeholder="Artist">
+  <button type="button" id="balls" ng-click="new.searchForSong(song,artist)">Search</button>
+</form>

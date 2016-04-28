@@ -8,8 +8,13 @@
  * Controller of the bandaokeApp
  */
 angular.module('bandaokeApp')
+
   .controller('SongCtrl', function () {
-    this.awesomeThings = [
+     var self = this
+     self.searchForSong = function(song,artist){
+      console.log(song);
+    }
+    self.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
