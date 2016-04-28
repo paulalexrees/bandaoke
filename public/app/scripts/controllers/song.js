@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name bandaokeApp.controller:AboutCtrl
+ * @name bandaokeApp.controller:SongCtrl
  * @description
- * # AboutCtrl
+ * # SongCtrl
  * Controller of the bandaokeApp
  */
 bandaokeApp.controller('SongCtrl',['SongSearchService','AddSongService',
