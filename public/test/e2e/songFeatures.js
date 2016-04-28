@@ -1,15 +1,16 @@
-// //var mock = require('protractor-http-mock');
-//
-// mock([{
-//           request: {
-//             path: "http://api.chartlyrics.com/apiv1.asmx/SearchLyric",
-//             method: 'GET'
-//           },
-//           response: {
-//             data: { items: [{"login": "fakey"}] }
-//           }
-//         }
-// ]);
+var mock = require('protractor-http-mock');
+
+mock([{
+          request: {
+            path: "/search/songs/layla/eric",
+            method: 'GET'
+          },
+          response: {
+            data: [{"song": "fake-song", "artist": "fake-artist"},
+                   {"song": "fake-song2", "artist": "fake-artist2"}]
+          }
+        }
+]);
 
 describe('Adding songs', function() {
   it('has a song seach box', function() {
@@ -23,6 +24,12 @@ describe('Adding songs', function() {
   });
 
   it('it returns a list of matched songs', function () {
-
+    browser.get('/#/songs/new');
+    $('#song-search').sendKeys('layla');
+    $('#artist-search').sendKeys('eric');
+    $('#search-submit').click();
+    var songs = $$('#songs .song');
+    expect(songs.first().getText()).toEqual('fake-song - fake-artist');
+    expect(songs.last().getText()).toEqual('fake-song2 - fake-artist2');
   });
 });

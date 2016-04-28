@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var bandaokeApp = angular
   .module('bandaokeApp', [
     'ngAnimate',
     'ngCookies',
@@ -24,15 +24,10 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: '/app/views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
       .when('/songs/new',{
         templateUrl: '/app/views/songs/new.html',
         controller: 'SongCtrl',
-        controllerAs: 'new'
+        controllerAs: 'SongCtrl'
       })
       .otherwise({
         redirectTo: '/'

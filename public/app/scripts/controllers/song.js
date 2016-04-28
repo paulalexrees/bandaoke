@@ -7,16 +7,14 @@
  * # AboutCtrl
  * Controller of the bandaokeApp
  */
-angular.module('bandaokeApp')
-
-  .controller('SongCtrl', function () {
-     var self = this
+bandaokeApp.controller('SongCtrl',['SongSearchService', function (SongSearchService) {
+     var self = this;
+     self.searchResults = [];
      self.searchForSong = function(song,artist){
-      console.log(song);
-    }
-    self.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+      self.searchResults = [];
+      SongSearchService.getSongs(song,artist).then(function (result) {
+        self.searchResults = result;
+      });
+      console.log(self.searchResults);
+      };
+  }]);
