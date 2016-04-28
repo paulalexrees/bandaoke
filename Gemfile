@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.3.0'
 
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
@@ -12,6 +12,8 @@ gem 'compass'
 gem 'activesupport'
 gem 'json'
 gem 'dotenv'
+gem 'nokogiri'
+gem 'httparty'
 
 group :test do
   gem 'database_cleaner'

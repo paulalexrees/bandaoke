@@ -9,11 +9,11 @@ class Bandaoke < Sinatra::Base
     SongSearch.find_songs(params[:terms])
   end
 
-  post '/songs/new' do
+  post '/songs' do
     title = params[:title]
     artist = params[:artist]
-    Song.add_with_roles(title: title, artist: artist)
-    redirect '/songs'
+    song = Song.add_with_roles(title: title, artist: artist)
+    { 'status': 'complete' }.to_json if song.errors.empty?
   end
 
 end

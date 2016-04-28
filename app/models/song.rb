@@ -8,7 +8,8 @@ class Song
   has n, :roles
 
   def self.add_with_roles(title:, artist:)
-    song = self.create(title: title, artist: artist)
+    song = self.first_or_create(title: title, artist: artist)
+    return song unless song.roles.empty?
     song.attach_default_roles
   end
 
