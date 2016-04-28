@@ -41,5 +41,8 @@
   },
   "scripts": {
     "test": "karma start test/karma.conf.js"
+  },
+  "dependencies": {
+    "xml2json-light": "^1.0.4"
   }
 }
