@@ -15,4 +15,8 @@ class Bandaoke < Sinatra::Base
   get '/' do
     File.read("public/app/index.html")
   end
+
+  get '/test' do
+    File.read("public/app/index.html")
+  end
 end
