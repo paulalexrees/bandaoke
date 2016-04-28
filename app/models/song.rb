@@ -7,6 +7,22 @@ class Song
 
   has n, :roles
 
+  def self.json_of_all_songs
+    array = []
+    Song.all.each do |song|
+      array << Hash["id", song.id, "title", song.title, "artist", song.artist, "roles", song.json_of_roles ]
+    end
+    array.to_json
+  end
+
+  def json_of_roles
+    array = []
+    self.roles.each do |role|
+      array << Hash[role.instrument, role.player]
+    end
+    array
+  end
+
   def self.add_with_roles(title:, artist:)
     song = self.create(title: title, artist: artist)
     song.attach_default_roles

@@ -7,6 +7,7 @@ require 'dm-postgres-adapter'
 require 'tilt/erb'
 require 'pry'
 require 'genius'
+require 'json'
 
 require_relative 'server'
 require_relative './models/song'

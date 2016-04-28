@@ -1,18 +1,15 @@
 class Bandaoke < Sinatra::Base
 
   get '/songs' do
-    @songs = Song.all
-    erb :'songs/all'
+    Song.json_of_all_songs
   end
 
   get '/songs/new' do
-    @songs = Genius::Song.search(params[:Song]) if params[:Song]
-    erb :'songs/new'
+    genius_songs = Genius::Song.search(params[:Song]) if params[:Song]
   end
 
   get '/songs/:song_id' do
-    @song = Song.get(params[:song_id])
-    erb :'songs/full'
+    song = Song.get(params[:song_id])
   end
 
   post '/songs/new' do
