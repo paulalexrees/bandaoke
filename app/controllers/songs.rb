@@ -2,6 +2,7 @@ class Bandaoke < Sinatra::Base
 
   get '/songs' do
     @songs = Song.all
+    binding.pry
     erb :'songs/all'
   end
 

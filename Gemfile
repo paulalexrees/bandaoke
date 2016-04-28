@@ -9,6 +9,7 @@ gem 'sinatra-flash'
 gem 'sinatra-partial'
 gem 'rake'
 gem 'genius'
+gem 'compass'
 
 group :test do
   gem 'database_cleaner'

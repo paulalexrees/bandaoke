@@ -13,6 +13,6 @@ class Bandaoke < Sinatra::Base
   Genius.access_token = ENV['GENIUS_TOKEN']
 
   get '/' do
-    redirect '/songs'
+    File.read("public/app/index.html")
   end
 end
