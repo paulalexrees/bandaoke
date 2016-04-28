@@ -11,6 +11,7 @@ gem 'rake'
 gem 'compass'
 gem 'activesupport'
 gem 'json'
+gem 'dotenv'
 
 group :test do
   gem 'database_cleaner'

@@ -5,8 +5,8 @@ describe('SongSearchService', function() {
 
   var httpBackend, SongSearchService;
 
-  var songData = [{'song': 'fake-song', 'artist': 'fake-artist'},
-                      {'song': 'fake-song2', 'artist': 'fake-artist2'}];
+  var songData = [{'title': 'fake-song', 'artist': 'fake-artist'},
+                      {'title': 'fake-song2', 'artist': 'fake-artist2'}];
 
   beforeEach(inject(function(_SongSearchService_, $httpBackend) {
     SongSearchService = _SongSearchService_;
@@ -14,11 +14,11 @@ describe('SongSearchService', function() {
   }));
 
   it('fetches users from songs from backend', function(){
-    httpBackend.expectGET('/search/songs/layla/eric').respond(songData);
+    httpBackend.expectGET('/search/songs/layla').respond(songData);
 
-    SongSearchService.getSongs('layla', 'eric').then(function (songs) {
-      expect(songs).toEqual([{'song': 'fake-song', 'artist': 'fake-artist'},
-                          {'song': 'fake-song2', 'artist': 'fake-artist2'}]);
+    SongSearchService.getSongs('layla').then(function (songs) {
+      expect(songs).toEqual([{'title': 'fake-song', 'artist': 'fake-artist'},
+                          {'title': 'fake-song2', 'artist': 'fake-artist2'}]);
     });
     httpBackend.flush();
   });

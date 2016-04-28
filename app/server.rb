@@ -11,10 +11,6 @@ class Bandaoke < Sinatra::Base
   end
 
   get '/' do
-    File.read("public/app/index.html")
-  end
-
-  get '/test' do
-    File.read("public/app/index.html")
+    erb :index
   end
 end

@@ -27,6 +27,7 @@
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 .tile a:hover .title{
@@ -131,4 +132,22 @@ i.found{
 #main {
   margin: 0 auto;
   max-width: 600px;
+}
+
+.search {
+  text-align: center;
+}
+
+input[type='text']{
+  width: 32.5%;
+  min-width: 310px;
+  max-width: 410px;
+  height: 26px;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  letter-spacing: 1px;
+}
+
+input[type='text']:focus{
+  border-color: black;
 }

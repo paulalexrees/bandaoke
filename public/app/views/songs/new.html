@@ -1,9 +1,17 @@
-<input type="text" id="song-search" ng-model="song" placeholder="Song">
-<input type="text" id="artist-search" ng-model="artist" placeholder="Artist">
-<button type="button" id="search-submit" ng-click="SongCtrl.searchForSong(song,artist)">Search</button>
+<section class="search">
+  <form ng-submit="SongCtrl.searchForSong(song)">
+    <input type="text" id="song-search" ng-model="song" placeholder="Song" >
+    <button id="search-submit" type="submit" value="submit">Search</button>
+  </form>
+</section>
 
 <section id="songs">
-  <article class="song" ng-repeat="result in SongCtrl.searchResults">
-    {{result.song}} - {{result.artist}}
+  <article class="tile song" ng-repeat="result in SongCtrl.searchResults">
+  	<a>
+  		<div class="container">
+  			<span class="title">{{result.title}}</span>
+  			<span class="sub-title">{{result.artist}}</span>
+  		</div>
+  	</a>
   </article>
 </section>
