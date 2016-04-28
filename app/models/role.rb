@@ -8,11 +8,15 @@ class Role
   def fill(person)
     return if person.empty?
     self.player = person
-    self.save 
+    self.save
   end
 
   def found
     'found' if self.player
+  end
+
+  def hash
+    hash = Hash[self.instrument, self.player]
   end
 
 end

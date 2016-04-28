@@ -1,7 +1,7 @@
 class Bandaoke < Sinatra::Base
 
   get '/songs' do
-    Song.json_of_all_songs
+    Song.multiple_song_and_roles_json(Song.all)
   end
 
   get '/songs/new' do
@@ -10,9 +10,10 @@ class Bandaoke < Sinatra::Base
 
   get '/songs/:song_id' do
     song = Song.get(params[:song_id])
+    song.song_and_roles_json
   end
 
-  post '/songs/new' do
+  post '/songs' do
     title = params[:title]
     artist = params[:artist]
     Song.add_with_roles(title: title, artist: artist)

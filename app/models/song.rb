@@ -7,20 +7,28 @@ class Song
 
   has n, :roles
 
-  def self.json_of_all_songs
-    array = []
-    Song.all.each do |song|
-      array << Hash["id", song.id, "title", song.title, "artist", song.artist, "roles", song.json_of_roles ]
+  def self.multiple_song_and_roles_hash(songs)
+    songs.map do |song|
+      song.song_and_roles_hash
     end
-    array.to_json
   end
 
-  def json_of_roles
-    array = []
-    self.roles.each do |role|
-      array << Hash[role.instrument, role.player]
+  def self.multiple_song_and_roles_json(songs)
+    multiple_song_and_roles_hash(songs).to_json
+  end
+
+  def song_and_roles_json
+    song_and_roles_hash.to_json
+  end
+
+  def song_and_roles_hash
+    hash = Hash["id", self.id, "title", self.title, "artist", self.artist, "roles", self.hash_of_roles]
+  end
+
+  def hash_of_roles
+    self.roles.map do |role|
+      role.hash
     end
-    array
   end
 
   def self.add_with_roles(title:, artist:)
