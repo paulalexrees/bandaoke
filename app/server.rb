@@ -10,9 +10,12 @@ class Bandaoke < Sinatra::Base
     enable :sessions
   end
 
-  Genius.access_token = ENV['GENIUS_TOKEN']
-
   get '/' do
-    redirect '/songs'
+    erb :index
+  end
+
+  get '/bind' do
+    binding.pry
+    "HELLO"
   end
 end
