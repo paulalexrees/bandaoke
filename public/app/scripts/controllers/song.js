@@ -7,9 +7,14 @@
  * # SongCtrl
  * Controller of the bandaokeApp
  */
-bandaokeApp.controller('SongCtrl',['SongSearchService','AddSongService',
-    function (SongSearchService, AddSongService) {
+bandaokeApp.controller('SongCtrl',['SongSearchService','AddSongService', 'AllSongsService',
+    function (SongSearchService, AddSongService, AllSongsService) {
      var self = this;
+     self.allSongs = [];
+     AllSongsService.getAllSongs().then(function (songs) {
+       self.allSongs = songs;
+     });
+     var allSongs = AllSongsService.getAllSongs();
      self.searchResults = [];
      self.searchForSong = function(song){
       self.searchResults = [];
@@ -19,9 +24,8 @@ bandaokeApp.controller('SongCtrl',['SongSearchService','AddSongService',
       });
     };
 
-      self.addSong = function (title, artist, link) {
-        AddSongService.saveSong(title, artist,link).then(function () {
-
-        });
-      };
+    self.addSong = function (title, artist, link) {
+      AddSongService.saveSong(title, artist,link).then(function () {
+      });
+    };
   }]);

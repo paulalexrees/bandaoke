@@ -20,9 +20,9 @@ var bandaokeApp = angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '/app/views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: '/app/views/songs/all.html',
+        controller: 'SongCtrl',
+        controllerAs: 'SongCtrl'
       })
       .when('/songs/new',{
         templateUrl: '/app/views/songs/new.html',

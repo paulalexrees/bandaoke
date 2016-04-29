@@ -7,10 +7,6 @@ class Bandaoke < Sinatra::Base
     SongSearch.find_songs(params[:terms])
   end
 
-  get '/songs/new' do
-    genius_songs = Genius::Song.search(params[:Song]) if params[:Song]
-  end
-
   get '/songs/:song_id' do
     song = Song.get(params[:song_id])
     song.song_and_roles_json
