@@ -4,6 +4,7 @@ class Song
   property :id, Serial
   property :title, String
   property :artist, String
+  property :lyric_url, String
 
   has n, :roles
 
@@ -22,17 +23,17 @@ class Song
   end
 
   def song_and_roles_hash
-    hash = Hash["id", self.id, "title", self.title, "artist", self.artist, "roles", self.hash_of_roles]
+    hash = Hash["id", self.id, "title", self.title, "artist", self.artist, lyric_url, self.lyric_url, "roles", self.hash_of_roles]
   end
 
   def hash_of_roles
     self.roles.map do |role|
-      role.hash
+      role.to_hash
     end
   end
 
-  def self.add_with_roles(title:, artist:)
-    song = self.create(title: title, artist: artist)
+  def self.add_with_roles(title:, artist:, lyric_url:)
+    song = self.create(title: title, artist: artist, lyric_url: lyric_url)
     song.attach_default_roles
   end
 

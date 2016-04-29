@@ -14,6 +14,7 @@ class Bandaoke < Sinatra::Base
   end
 
   post '/songs' do
+    binding.pry
     title = params[:title]
     artist = params[:artist]
     Song.add_with_roles(title: title, artist: artist)

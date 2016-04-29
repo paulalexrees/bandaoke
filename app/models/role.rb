@@ -15,7 +15,7 @@ class Role
     'found' if self.player
   end
 
-  def hash
+  def to_hash
     hash = Hash[self.instrument, self.player]
   end
 
