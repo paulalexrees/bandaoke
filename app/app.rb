@@ -13,13 +13,15 @@ require 'active_support'
 require 'active_support/core_ext'
 require 'net/http'
 require 'dotenv'
+require 'rabl'
 Dotenv.load
-
+Rabl.register!
 
 require_relative 'server'
 require_relative './models/song'
 require_relative './models/user'
 require_relative './models/role'
+require_relative './models/jsonmaker'
 require_relative './models/datamapper_setup'
 require_relative './lib/song_search'
 require_relative './lib/lyric_scrape'

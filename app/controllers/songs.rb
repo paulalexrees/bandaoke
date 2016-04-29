@@ -1,6 +1,9 @@
 class Bandaoke < Sinatra::Base
+
   get '/songs' do
-    Song.multiple_song_and_roles_json(Song.all)
+    @songs = Song.all
+    rabl :songs, format: "json"
+    #Song.multiple_song_and_roles_json(Song.all)
   end
 
   get '/search/songs/:terms' do
