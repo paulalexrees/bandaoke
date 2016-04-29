@@ -14,6 +14,7 @@ gem 'json'
 gem 'dotenv'
 gem 'nokogiri'
 gem 'httparty'
+gem 'rabl'
 
 group :test do
   gem 'database_cleaner'
