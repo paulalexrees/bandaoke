@@ -1,4 +1,5 @@
-bandaokeApp.service('AllSongsService', ['$http','SongFactory', 'RoleFactory', function($http, SongFactory, RoleFactory) {
+bandaokeApp.service('AllSongsService', ['$http','SongFactory', 'RoleFactory',
+ function($http, SongFactory, RoleFactory) {
   var self = this;
 
   self.getAllSongs = function() {
@@ -7,22 +8,9 @@ bandaokeApp.service('AllSongsService', ['$http','SongFactory', 'RoleFactory', fu
   };
 
   function _handleResponseFromAPI (response) {
-    var songsData = response.data;
-    var newRoles = [];
+    songsData = response.data;
     return songsData.map(function (song) {
-      newRoles = [];
-      for (var k in song.roles){
-        if(song.roles.hasOwnProperty(k)){
-          for (var key in song.roles[k]) {
-            if (song.roles[k].hasOwnProperty(key)) {
-               newRoles.push(new RoleFactory(key, song.roles[k][key]));
-            }
-          }
-
-        }
-      }
-      song.roles = newRoles;
-      return _createSong(song);
+      return _createSong(song.song);
     });
   }
 
@@ -31,6 +19,14 @@ bandaokeApp.service('AllSongsService', ['$http','SongFactory', 'RoleFactory', fu
   }
 
   function _createSong(song) {
+    song.roles = _createRoles(song);
     return new SongFactory(song.title, song.artist, song.lyric_url, song.id, song.roles)
+  }
+
+  function _createRoles(song) {
+    return song.roles.map(function (role) {
+      var roleObj = role.role;
+      return new RoleFactory(roleObj.instrument, roleObj.player);
+    });
   }
 }]);
