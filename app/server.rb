@@ -11,11 +11,11 @@ class Bandaoke < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    File.read('public/app/index.html')
   end
 
   get '/bind' do
     binding.pry
-    "HELLO"
+    'HELLO'
   end
 end

@@ -23,7 +23,6 @@ describe('Adding songs', function() {
   it('returns a list of matched songs', function () {
     var songs = $$('#songs .song');
     firstSongTitle = songs.first().element(by.css(".title"));
-    browser.pause();
     expect(firstSongTitle.getText()).toMatch('fake-song');
     secondSongTitle = songs.last().element(by.css(".title"));
 
