@@ -1,14 +1,14 @@
 var mock = require('protractor-http-mock');
-var songsResponse = [{"id":1,"title":"fake-song","artist":"fake-artist","lyric_url":null,"roles":[{"vocals":null},{"tambourine":"Chris"}]},
-                    {"id":2,"title":"fake-song2","artist":"fake-artist2","lyric_url":null,"roles":[{"vocals":'Tobenna'},{"tambourine":null}]}]
+var songsResponse = [{"song":{"id":1,"title":"fake-song","artist":"fake-artist","lyric_url":null,"roles":[{"role":{"instrument":"vocals","player":null}},{"role":{"instrument":"vocals","player":null}}]}},
+                {"song":{"id":2,"title":"fake-song2","artist":"fake-artist2","lyric_url":null,"roles":[{"role":{"instrument":"vocals","player":null}},{"role":{"instrument":"vocals","player":null}}]}}];
 mock([{
           request: {
             path: "/search/songs/layla",
             method: 'GET'
           },
           response: {
-            data: [{"title": "fake-song", "artist": "fake-artist"},
-                   {"title": "fake-song2", "artist": "fake-artist2"}]
+            data: [{"song":{'title': 'fake-song', 'artist': 'fake-artist'}},
+                            {"song":{'title': 'fake-song2', 'artist': 'fake-artist2'}}]
           }
         },
         {

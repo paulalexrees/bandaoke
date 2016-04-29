@@ -1,3 +1,9 @@
+<section class="search">
+  <form ng-submit="SongCtrl.filterBy(term)">
+    <input type="text" id="filter-box" ng-model="term" placeholder="Filter" >
+    <button id="search-submit" type="submit" value="submit">Search</button>
+  </form>
+</section>
 <div id="song-list">
   <article class="tile" ng-repeat="song in SongCtrl.allSongs">
   	<a>

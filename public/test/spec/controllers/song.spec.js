@@ -14,12 +14,12 @@ describe('SongCtrl', function() {
     httpBackend = $httpBackend;
   }));
 
-  // it('loads all the songs in the database', function(){
-  //   httpBackend.expectGET('/songs').respond(songData);
-  //
-  //   AllSongsService.getAllSongs().then(function (songs) {
-  //     expect(songs).toEqual(songData);
-  //   });
-  //   httpBackend.flush();
-  // });
+  it('loads all the songs in the database', function(){
+    httpBackend.expectGET('/songs').respond(songData);
+
+    AllSongsService.getAllSongs().then(function (songs) {
+      expect(songs).toEqual(songData);
+    });
+    httpBackend.flush();
+  });
 });

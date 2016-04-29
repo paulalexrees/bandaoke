@@ -1,6 +1,6 @@
 var mock = require('protractor-http-mock');
-var songsResponse = [{"id":1,"title":"Fake","artist":"Fake","lyric_url":null,"roles":[{"vocals":null},{"tambourine":"Chris"}]},
-                    {"id":2,"title":"Tobenna","artist":"Tobenna","lyric_url":null,"roles":[{"vocals":'Tobenna'},{"tambourine":null}]}]
+var songsResponse = [{"song":{"id":1,"title":"fake-song","artist":"fake-artist","lyric_url":null,"roles":[{"role":{"instrument":"vocals","player":null}},{"role":{"instrument":"vocals","player":null}}]}},
+                {"song":{"id":2,"title":"fake-song2","artist":"fake-artist2","lyric_url":null,"roles":[{"role":{"instrument":"vocals","player":null}},{"role":{"instrument":"vocals","player":null}}]}}];
 mock([ { request: { path: "/songs",  method: 'GET' }, response: { data: songsResponse }  }]);
 
 describe('Filtering songs', function() {
@@ -8,11 +8,11 @@ describe('Filtering songs', function() {
   beforeAll(function () {
     browser.get('/#/songs');
     $('#filter-box').sendKeys('Tobenna');
-    $('#search').click();
+    $('#search-submit').click();
   });
 
   it('returns a list of matched songs', function () {
-    var songs = $$('#songs .song');
+    var songs = $$('#song-list .tile');
     var firstSongTitle = songs.first().element(by.css(".title"));
     expect(firstSongTitle.getText()).toMatch('Tobenna');
   });
