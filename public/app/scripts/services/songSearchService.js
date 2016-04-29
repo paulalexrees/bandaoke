@@ -7,9 +7,9 @@ bandaokeApp.service('SongSearchService', ['$http', 'SongFactory', function($http
   };
 
   function _handleResponseFromAPI (response) {
-    songsData = response.data;
+    var songsData = response.data;
     return songsData.map(function (song) {
-      return _createSong(song);
+      return _createSong(song.song);
     });
   }
 

@@ -19,7 +19,8 @@ bandaokeApp.service('AllSongsService', ['$http','SongFactory', 'RoleFactory',
   }
 
   function _createSong(song) {
-    song.roles = _createRoles(song);
+    // console.log(song.roles);
+    if (song.roles) song.roles = _createRoles(song);
     return new SongFactory(song.title, song.artist, song.lyric_url, song.id, song.roles)
   }
 
