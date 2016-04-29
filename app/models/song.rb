@@ -4,12 +4,12 @@ class Song
   property :id, Serial
   property :title, String
   property :artist, String
-  property :link, String
+  property :lyric_url, String
 
   has n, :roles
 
-  def self.add_with_roles(title:, artist:, link:)
-    song = self.first_or_create(title: title, artist: artist, link: link)
+  def self.add_with_roles(title:, artist:, lyric_url:)
+    song = self.first_or_create(title: title, artist: artist, lyric_url: lyric_url)
     return song unless song.roles.empty?
     song.attach_default_roles
   end
