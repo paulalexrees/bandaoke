@@ -8,15 +8,16 @@
  * Controller of the bandaokeApp
  */
 bandaokeApp.controller('SongCtrl',['SongSearchService','AddSongService', 'AllSongsService',
-    function (SongSearchService, AddSongService, AllSongsService) {
+  function (SongSearchService, AddSongService, AllSongsService) {
      var self = this;
      self.allSongs = [];
      AllSongsService.getAllSongs().then(function (songs) {
        self.allSongs = songs;
-     });
-     var allSongs = AllSongsService.getAllSongs();
-     self.searchResults = [];
-     self.searchForSong = function(song){
+    });
+
+    self.searchResults = [];
+
+    self.searchForSong = function(song){
       self.searchResults = [];
       if(song === '' || typeof song === 'undefined' ) return;
       SongSearchService.getSongs(song).then(function (result) {

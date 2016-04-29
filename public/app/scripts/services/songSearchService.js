@@ -1,4 +1,4 @@
-bandaokeApp.service('SongSearchService', ['$http', function($http) {
+bandaokeApp.service('SongSearchService', ['$http', 'SongFactory', function($http, SongFactory) {
   var self = this;
 
   self.getSongs = function(song, artist) {
@@ -8,10 +8,16 @@ bandaokeApp.service('SongSearchService', ['$http', function($http) {
 
   function _handleResponseFromAPI (response) {
     songsData = response.data;
-    return songsData;
+    return songsData.map(function (song) {
+      return _createSong(song);
+    });
   }
 
   function _errorCallback(error) {
     return error;
+  }
+
+  function _createSong(song) {
+    return new SongFactory(song.title, song.artist, song.lyric_url, song.id, song.roles)
   }
 }]);

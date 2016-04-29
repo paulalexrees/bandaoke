@@ -6,7 +6,7 @@
   			<span class="sub-title">{{song.artist}}</span>
   		</div>
   		<div class="bottom">
-  				<i class="flaticon-"></i>
+  				<i class="flaticon-{{role.instrument}}" ng-repeat="role in song.roles"></i>
   		</div>
   	</a>
   </article>
