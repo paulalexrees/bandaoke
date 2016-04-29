@@ -27,6 +27,7 @@ bandaokeApp.controller('SongCtrl',['SongSearchService','AddSongService', 'AllSon
 
     self.addSong = function (title, artist, link) {
       AddSongService.saveSong(title, artist,link).then(function () {
+        window.location.href = '/';
       });
     };
   }]);

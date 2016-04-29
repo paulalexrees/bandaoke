@@ -13,7 +13,6 @@ bandaokeApp.service('AllSongsService', ['$http','SongFactory', 'RoleFactory', fu
       newRoles = [];
       for (var k in song.roles){
         if(song.roles.hasOwnProperty(k)){
-          // console.log(song.roles[k]);
           for (var key in song.roles[k]) {
             if (song.roles[k].hasOwnProperty(key)) {
                newRoles.push(new RoleFactory(key, song.roles[k][key]));
